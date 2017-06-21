@@ -11,5 +11,9 @@ RUN wget "s3.amazonaws.com/aws-cli/awscli-bundle.zip" -O "awscli-bundle.zip" && 
     rm -rf awscli-bundle
 
 ADD script.sh /bin/
+ADD restore.sh /bin/
+ADD update.sh /bin/
 RUN chmod +x /bin/script.sh
-# ENTRYPOINT /bin/script.sh
+RUN chmod +x /bin/restore.sh
+RUN chmod +x /bin/update.sh
+ENTRYPOINT /bin/script.sh

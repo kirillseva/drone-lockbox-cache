@@ -1,9 +1,9 @@
 case $PLUGIN_ACTION in
     restore) echo "Restoring lockbox..."
-      grep -c -i $2 $3
+      /bin/restore.sh $PLUGIN_LOCKBOX_CACHE_PATH
       ;;
     update) echo "Updating lockbox..."
-      grep -c -i $2 $3
+      /bin/update.sh $PLUGIN_LOCKBOX_CACHE_PATH
       ;;
     *) echo "Unknown action specified! Make sure you set `action: {restore, update}` in your .drone.yml"
       exit 1
